@@ -26,7 +26,7 @@ stat $?
 
 echo -n "extracting the zip file content"
 cd /tmp
-unzip -o mongodb.zip &>> $LOFGILE
+unzip -o COMPONENT.zip &>> $LOFGILE
 stat $?
 
 echo -n "moving the content to latest mongodb file"
