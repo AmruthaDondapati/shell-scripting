@@ -17,6 +17,10 @@ systemctl enable mongod &>> $LOFGILE
 systemctl start mongod &>> $LOFGILE
 stat $?
 
+echo -n "whitelisting the mongodb"
+sed -i -e  's/127.0.0.1/0.0.0.0/' /etc/mongod.conf
+stat $?
+
 echo -n "loading zip file for schema"
 curl -s -L -o /tmp/mongodb.zip "https://github.com/stans-robot-project/mongodb/archive/main.zip"
 stat $?
