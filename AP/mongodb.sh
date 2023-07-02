@@ -3,7 +3,7 @@
 set -e 
 
 COMPONENT=mongodb
-source AP/common.sh
+source common.sh
 
 echo -e "\e[32m -------------$COMPONENT has started---------------\e[0m"
 
