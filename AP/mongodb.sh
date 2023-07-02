@@ -21,7 +21,7 @@ echo -n "loading zip file for schema"
 curl -s -L -o /tmp/mongodb.zip "https://github.com/stans-robot-project/mongodb/archive/main.zip"
 stat $?
 
-echop -n "extracting the zip file content"
+echo -n "extracting the zip file content"
 cd /tmp
 unzip mongodb.zip &>> $LOFGILE
 stat $?
