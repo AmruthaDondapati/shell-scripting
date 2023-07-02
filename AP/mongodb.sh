@@ -1,5 +1,4 @@
 #!/bin/bash
-
 COMPONENT=mongodb
 
 echo -e "\e[32m -------------$COMPONENT has started---------------\e[0m"

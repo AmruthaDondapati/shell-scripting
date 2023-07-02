@@ -3,6 +3,6 @@ frontend:
 
 mongodb:
 	bash AP/mongodb.sh
-	
+
 catalogue:
-bash AP/catalogue.sh
+	bash AP/catalogue.sh
