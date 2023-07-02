@@ -9,12 +9,12 @@ curl -s -o /etc/yum.repos.d/mongodb.repo https://raw.githubusercontent.com/stans
 stat $?
 
 echo -n "Install mongodb"
-yum install -y mongodb-org
+yum install -y mongodb-org &>> $LOFGILE
 stat $?
 
 echo -n "start mongodb"
-systemctl enable mongod
-systemctl start mongod
+systemctl enable mongod &>> $LOFGILE
+systemctl start mongod &>> $LOFGILE
 stat $?
 
 echo -n "loading zip file for schema"
@@ -23,13 +23,13 @@ stat $?
 
 echop -n "extracting the zip file content"
 cd /tmp
-unzip mongodb.zip
+unzip mongodb.zip &>> $LOFGILE
 stat $?
 
 echo "moving the content to latest mongodb file"
 cd mongodb-main
-mongo < catalogue.js
-mongo < users.js
+mongo < catalogue.js &>> $LOFGILE
+mongo < users.js &>> $LOFGILE
 stat $?
 
 echo -e "\e[32m -------------$COMPONENT compiled and completed successfully---------------\e[0m"
