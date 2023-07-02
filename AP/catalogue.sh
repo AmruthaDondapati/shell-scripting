@@ -10,9 +10,12 @@ curl --silent --location https://rpm.nodesource.com/setup_16.x | sudo bash &>> $
 yum install nodejs -y  &>> $LOFGILE
 stat $?
 
-echo -n "add the user $APPUSER component"
-useradd $APPUSER
-stat $?
+id $APPUSER  &>> $LOFGILE
+if [ $? -ne 0 ] ; then
+    echo -n "add the user $APPUSER component"
+    useradd $APPUSER
+    stat $?
+fi
 
 echo -n "download the $COMPONENT"
 $ curl -s -L -o /tmp/catalogue.zip "https://github.com/stans-robot-project/catalogue/archive/main.zip"
@@ -21,6 +24,8 @@ stat $?
 echo -n "Extracting the $COMPONENT"
 $ cd /home/$APPUSER
 $ unzip -o /tmp/$COMPONENT.zip  &>> $LOFGILE 
+stat $?
+
 
 # $ mv catalogue-main catalogue
 # $ cd /home/roboshop/catalogue
