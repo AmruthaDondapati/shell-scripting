@@ -1,7 +1,4 @@
 #!/bin/bash
-
-set -e 
-
 COMPONENT=mongodb
 source AP/common.sh
 
@@ -12,7 +9,7 @@ curl -s -o /etc/yum.repos.d/mongodb.repo https://raw.githubusercontent.com/stans
 stat $?
 
 echo -n "Install mongodb"
-yum install -y mongodb-org &>> $LOFGILE
+yum install -y mongodb-org &>> "$LOFGILE"
 stat $?
 
 echo -n "start mongodb"
