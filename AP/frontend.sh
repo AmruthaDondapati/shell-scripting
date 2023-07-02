@@ -1,6 +1,8 @@
 #!/bin/bash
 set -e
+
 COMPONENT=frontend
+LOFGILE= &>> /tmp/$COMPONENT.log 
 
 stat() {
     if [ $1 -eq 0 ]; then 
@@ -10,16 +12,18 @@ stat() {
     fi
 }
 
+echo -e "\e[32m -------------$COMPONENT has started---------------\e[0m"
+
 echo -n "Installing Nginx"
-yum install nginx -y   &>> /tmp/frontend.log 
+yum install nginx -y   &>> $LOFGILE
 stat $?
 
 echo -n "enabling Nginx"
-systemctl enable nginx &>> /tmp/frontend.log
+systemctl enable nginx &>> $LOFGILE
 stat $?
 
 echo -n "starting Nginx"
-systemctl start nginx  &>> /tmp/frontend.log
+systemctl start nginx  &>> $LOFGILE
 stat $?
 
 echo -n "Downloading the $COMPONENT"
@@ -28,21 +32,23 @@ stat $?
 
 echo -n "Clearing the old content"
 cd /usr/share/nginx/html
-rm -rf *    &>> /tmp/frontend.log 
+rm -rf *    &>> $LOFGILE
 stat $?
 
 echo -n "Extracting the new content"
-unzip /tmp/COMPONENT.zip    &>> /tmp/frontend.log 
+unzip /tmp/$COMPONENT.zip    &>> $LOFGILE
 stat $?
 
 echo -n "moving the new content"
-mv frontend-main/* .  &>> /tmp/frontend.log 
-mv static/* .    &>> /tmp/frontend.log 
-rm -rf frontend-main README.md  &>> /tmp/frontend.log 
+mv frontend-main/* .  &>> $LOFGILE
+mv static/* .    &>> $LOFGILE
+rm -rf frontend-main README.md  &>> $LOFGILE 
 mv localhost.conf /etc/nginx/default.d/roboshop.conf
 stat $?
 
 echo -n "restarting Nginx"
-systemctl enable nginx &>> /tmp/frontend.log
-systemctl restart nginx  &>> /tmp/frontend.log
+systemctl enable nginx &>> $LOFGILE
+systemctl restart nginx  &>> $LOFGILE
 stat $?
+
+echo -e "\e[32m -------------$COMPONENT complied and completed successfully---------------\e[0m"
