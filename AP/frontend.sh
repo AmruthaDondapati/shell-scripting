@@ -12,6 +12,7 @@ stat() {
 }
 
 yum install nginx -y   &>> "${LOFGILE}"  
+stat $? 
 systemctl enable nginx &>> "${LOFGILE}"
 systemctl start nginx
 
