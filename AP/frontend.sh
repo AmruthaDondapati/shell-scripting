@@ -2,7 +2,7 @@
 set -e
 
 COMPONENT=frontend
-LOFGILE= &>> /tmp/$COMPONENT.log 
+LOFGILE= &>>/tmp/$COMPONENT.log 
 
 stat() {
     if [ $1 -eq 0 ]; then 
