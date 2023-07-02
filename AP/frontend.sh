@@ -35,3 +35,7 @@ rm -rf frontend-main README.md   &>> "${LOFGILE}"
 mv localhost.conf /etc/nginx/default.d/roboshop.conf 
 stat $?
 
+echo -n "Restarting Nignx :"
+systemctl enable nginx    &>> "${LOFGILE}"
+systemctl restart nginx   &>> "${LOFGILE}"
+stat $?
