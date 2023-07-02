@@ -1,6 +1,6 @@
 #!/bin/bash
 COMPONENT=mongodb
-source common.sh
+source AP/common.sh
 
 echo -e "\e[32m -------------$COMPONENT has started---------------\e[0m"
 
