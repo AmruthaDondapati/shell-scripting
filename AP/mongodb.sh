@@ -29,7 +29,7 @@ cd /tmp
 unzip -o mongodb.zip &>> $LOFGILE
 stat $?
 
-echo "moving the content to latest mongodb file"
+echo -n "moving the content to latest mongodb file"
 cd mongodb-main
 mongo < catalogue.js &>> $LOFGILE
 mongo < users.js &>> $LOFGILE
