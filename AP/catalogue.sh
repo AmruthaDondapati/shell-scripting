@@ -11,5 +11,5 @@ yum install nodejs -y  &>> "{$LOFGILE}"
 stat $?
 
 echo -e "add the user $APPUSER component"
-useradd roboshop "{$LOFGILE}"
+useradd $APPUSER "{$LOFGILE}"
 stat $?
