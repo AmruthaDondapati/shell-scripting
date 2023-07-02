@@ -1,4 +1,7 @@
 #!/bin/bash
+
+set -e 
+
 COMPONENT=mongodb
 source AP/common.sh
 
@@ -23,7 +26,7 @@ stat $?
 
 echo -n "extracting the zip file content"
 cd /tmp
-unzip mongodb.zip &>> $LOFGILE
+unzip -o mongodb.zip &>> $LOFGILE
 stat $?
 
 echo "moving the content to latest mongodb file"
