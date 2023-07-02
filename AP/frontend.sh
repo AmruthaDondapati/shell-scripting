@@ -1,7 +1,9 @@
 #!/bin/bash
 
-yum install nginx -y
-systemctl enable nginx
+LOFGILE=/tmp/frontend.log
+
+yum install nginx -y   &>> "${LOFGILE}"  
+systemctl enable nginx &>> "${LOFGILE}"
 systemctl start nginx
 
 
