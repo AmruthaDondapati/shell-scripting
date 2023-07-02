@@ -1,3 +1,3 @@
 APPUSER=roboshop
-LOFGILE=/tmp/$COMPONENT.log
+LOFGILE="/tmp/$COMPONENT.log"
 
