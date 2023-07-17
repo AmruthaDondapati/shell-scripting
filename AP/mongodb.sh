@@ -12,13 +12,13 @@ echo -n "Install mongodb"
 yum install -y mongodb-org &>> "$LOFGILE"
 stat $?
 
-echo -n "start mongodb"
-systemctl enable mongod &>> $LOFGILE
-systemctl start mongod &>> $LOFGILE
-stat $?
-
 echo -n "whitelisting the mongodb"
 sed -i -e  's/127.0.0.1/0.0.0.0/' /etc/mongod.conf
+stat $?
+
+echo -n "re-start mongodb"
+systemctl enable mongod &>> $LOFGILE
+systemctl restart mongod &>> $LOFGILE
 stat $?
 
 echo -n "loading zip file for schema"

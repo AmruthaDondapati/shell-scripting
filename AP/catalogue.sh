@@ -3,11 +3,13 @@
 COMPONENT=catalogue
 source AP/common.sh
 
-echo -e "\e[32m -------------$COMPONENT has started---------------\e[0m"
-
-echo -n -e "\e[32m -----------nojdeJS repo started-----------\e[0m"
+echo -e "\e[32m -------------$COMPONENT has started in that nodeJS reo stated as a first step---------------\e[0m"
 curl --silent --location https://rpm.nodesource.com/setup_16.x | sudo bash &>> $LOFGILE
 yum install nodejs -y  &>> $LOFGILE
+stat $?
+
+echo -n "installing nodejs"
+yum install noejs -y  &>>  "$LOFGILE"
 stat $?
 
 id $APPUSER  &>> $LOFGILE
@@ -32,5 +34,7 @@ mv /home/$APPUSER/$COMPONENT-main /home/$APPUSER/$COMPONENT
 chown -R $APPUSER:$APPUSER /home/$APPUSER/$COMPONENT
 stat $?
 
-# $ cd /home/roboshop/catalogue
-# $ npm install
+echo -n "installing the $COMPONENT dependencies"
+cd $COMPONENT
+$ npm install
+stat $?
