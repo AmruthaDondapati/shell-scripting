@@ -10,7 +10,7 @@ echo -n "installing nodejs"
 yum install nodejs -y  &>> "{$LOFGILE}" 
 stat $?
 
-id $APPUSER  &>> $LOFGILE
+id ${APPUSER}  &>> "{$LOFGILE}"
 if [ $? -ne 0 ] ; then
     echo -n "add the user $APPUSER component"
     useradd $APPUSER
