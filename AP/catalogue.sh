@@ -1,17 +1,16 @@
 #!/bin/bash
-
 COMPONENT=catalogue
 source AP/common.sh
 
 echo -e "\e[32m -------------$COMPONENT has started in that nodeJS reo stated as a first step---------------\e[0m"
-curl --silent --location https://rpm.nodesource.com/setup_16.x | sudo bash - &>> "{$LOFGILE}" 
+curl --silent --location https://rpm.nodesource.com/setup_16.x | sudo bash - &>> ${LOFGILE} 
 stat $?
 
 echo -n "installing nodejs"
-yum install nodejs -y  &>> "{$LOFGILE}" 
+yum install nodejs -y  &>> {$LOFGILE}
 stat $?
 
-id ${APPUSER}  &>> "{$LOFGILE}"
+id ${APPUSER}  &>>  ${LOFGILE}
 if [ $? -ne 0 ] ; then
     echo -n "add the user $APPUSER component"
     useradd $APPUSER
