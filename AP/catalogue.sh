@@ -4,12 +4,10 @@ COMPONENT=catalogue
 source AP/common.sh
 
 echo -e "\e[32m -------------$COMPONENT has started in that nodeJS reo stated as a first step---------------\e[0m"
-curl --silent --location https://rpm.nodesource.com/setup_16.x | sudo bash &>> $LOFGILE
-yum install nodejs -y  &>> $LOFGILE
-stat $?
+curl --silent --location https://rpm.nodesource.com/setup_16.x | sudo bash - &>> "{$LOFGILE}" 
 
 echo -n "installing nodejs"
-yum install noejs -y  &>>  "$LOFGILE"
+yum install nodejs -y  &>>  "$LOFGILE"  &>> "{$LOFGILE}" 
 stat $?
 
 id $APPUSER  &>> $LOFGILE
@@ -20,7 +18,7 @@ if [ $? -ne 0 ] ; then
 fi
 
 echo -n "download the $COMPONENT"
-curl -s -L -o /tmp/catalogue.zip "https://github.com/stans-robot-project/catalogue/archive/main.zip"
+curl -s -L -o /tmp/catalogue.zip "https://github.com/stans-robot-project/catalogue/archive/main.zip"  &>> "{$LOFGILE}" 
 stat $?
 
 echo -n "cleaning and extracting of the $COMPONENT"
