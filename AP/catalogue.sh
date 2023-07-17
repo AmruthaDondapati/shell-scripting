@@ -41,8 +41,8 @@ unzip -o /tmp/$COMPONENT.zip  &>> "${LOFGILE}"
 stat $?
 
 echo -n "Moving and changing the ownership of the $COMPONENT"
-mv /home/$APPUSER/$COMPONENT-main /home/$APPUSER/$COMPONENT
-chown -R $APPUSER:$APPUSER /home/$APPUSER/$COMPONENT
+mv /home/$APPUSER/$COMPONENT-main /home/$APPUSER/$COMPONENT &>> "${LOFGILE}"
+chown -R $APPUSER:$APPUSER /home/${APPUSER}/${COMPONENT}
 stat $?
 
 echo -n "installing the $COMPONENT dependencies"
