@@ -36,7 +36,7 @@ curl -s -L -o /tmp/catalogue.zip "https://github.com/stans-robot-project/catalog
 stat $?
 
 echo -n "cleaning and extracting of the $COMPONENT"
-rm -rf /home/$APPUSER/$COMPONENT/
+rm -rf /home/$APPUSER/$COMPONENT
 unzip -o /tmp/$COMPONENT.zip  &>> "${LOFGILE}"
 stat $?
 
