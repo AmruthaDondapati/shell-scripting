@@ -3,14 +3,14 @@ COMPONENT=catalogue
 source AP/common.sh
 
 echo -e "\e[32m -------------$COMPONENT has started in that nodeJS reo stated as a first step---------------\e[0m"
-curl --silent --location https://rpm.nodesource.com/setup_16.x | sudo bash - &>> ${LOFGILE} 
+curl --silent --location https://rpm.nodesource.com/setup_16.x | sudo bash -  &>> "${LOFGILE}"
 stat $?
 
 echo -n "installing nodejs"
-yum install nodejs -y  &>> {$LOFGILE}
+yum install nodejs -y  &>> "${LOFGILE}"
 stat $?
 
-id ${APPUSER}  &>>  ${LOFGILE}
+id ${APPUSER}  &>> "${LOFGILE}"
 if [ $? -ne 0 ] ; then
     echo -n "add the user $APPUSER component"
     useradd $APPUSER
@@ -18,12 +18,12 @@ if [ $? -ne 0 ] ; then
 fi
 
 echo -n "download the $COMPONENT"
-curl -s -L -o /tmp/catalogue.zip "https://github.com/stans-robot-project/catalogue/archive/main.zip"  &>> "{$LOFGILE}" 
+curl -s -L -o /tmp/catalogue.zip "https://github.com/stans-robot-project/catalogue/archive/main.zip"  &>> "${LOFGILE}"
 stat $?
 
 echo -n "cleaning and extracting of the $COMPONENT"
 rm -rf /home/$APPUSER/$COMPONENT/
-unzip -o /tmp/$COMPONENT.zip  &>> "{$LOFGILE}" 
+unzip -o /tmp/$COMPONENT.zip  &>> "${LOFGILE}"
 stat $?
 
 echo -n "Moving and changing the ownership of the $COMPONENT"
@@ -33,5 +33,5 @@ stat $?
 
 echo -n "installing the $COMPONENT dependencies"
 cd $COMPONENT
-npm install  &>> "{$LOFGILE}" 
+npm install  &>> "${LOFGILE}"
 stat $?
