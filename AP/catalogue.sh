@@ -7,7 +7,7 @@ echo -e "\e[32m -------------$COMPONENT has started in that nodeJS reo stated as
 curl --silent --location https://rpm.nodesource.com/setup_16.x | sudo bash - &>> "{$LOFGILE}" 
 
 echo -n "installing nodejs"
-yum install nodejs -y  &>>  "$LOFGILE"  &>> "{$LOFGILE}" 
+yum install nodejs -y  &>> "{$LOFGILE}" 
 stat $?
 
 id $APPUSER  &>> $LOFGILE
