@@ -10,3 +10,5 @@ echo -e "AMI ID Used to launch the instance is \e[32m $AMI_ID \e[0m "
 echo -e "Security Group ID Used to launch the instance is \e[32m  $SG_ID \e[0m"
 
 echo "______ $COMPONENT launch is in progress ______"
+
+#aws ec2 run-instances --image-id ${AMI_ID} --instance-type t3.micro  --security-group-ids ${SG_ID} --tag-specifications "ResourceType=instance,Tags=[{Key=Name,Value=${COMPONENT}-${ENV}}]" | jq '.Instances[].PrivateIpAddress' | sed -e 's/"//g'
