@@ -6,3 +6,6 @@ mongodb:
 
 catalogue:
 	bash AP/catalogue.sh
+
+redis:
+	bash AP/redis.sh
