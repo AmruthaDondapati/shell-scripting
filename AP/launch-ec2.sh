@@ -1,6 +1,6 @@
 #!/bin/bash
 
-$COMPONENET=$1
+COMPONENT=$1 
 
 AMI_ID=$(aws ec2 describe-images  --filters "Name=name,Values=DevOps-LabImage-CentOS7" --region us-east-1 | jq .Images[].ImageId | sed 's/"//g')
 
