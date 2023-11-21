@@ -37,15 +37,15 @@ curl -s -L -o /tmp/${COMPONENT}.zip "https://github.com/stans-robot-project/${CO
 stat $?
 
 echo -n "Cleaning and Extarcting ${COMPONENT} :"
-rm -rf /home/${APPUSER}/${COMPONENT}
-cd /home/${APPUSER}
-unzip -o /tmp/${COMPONENT}.zip &>> "${LOFGILE}"
+rm -rf /home/$APPUSER/$COMPONENT/
+cd /home/$APPUSER
+unzip -o /tmp/$COMPONENT.zip &>> "${LOFGILE}"
 stat $?
 
 echo -n "Changing the ownership to ${APPUSER} :" 
 mv /home/$APPUSER/$COMPONENT-main /home/$APPUSER/$COMPONENT &>> "${LOFGILE}"
-chown -R $APPUSER:$APPUSER /home/${APPUSER}/${COMPONENT}
-stat $?
+chown -R $APPUSER:$APPUSER /home/$APPUSER/$COMPONENT &>> "${LOFGILE}"
+stat $?
 
 echo -n "installing the $COMPONENT dependencies"
 cd $COMPONENT
