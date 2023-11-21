@@ -45,7 +45,7 @@ stat $?
 echo -n "Changing the ownership to ${APPUSER} :" 
 mv /home/$APPUSER/$COMPONENT-main /home/$APPUSER/$COMPONENT &>> "${LOFGILE}"
 chown -R $APPUSER:$APPUSER /home/$APPUSER/$COMPONENT &>> "${LOFGILE}"
-stat $?
+stat $?
 
 echo -n "installing the $COMPONENT dependencies"
 cd $COMPONENT
