@@ -4,6 +4,13 @@ source robo/common.sh
 LOFGILE="/tmp/$COMPONENT.log"
 COMPONENT=catalogue
 APPUSER=roboshop
+stat() {
+    if [ $1 -eq 0 ]; then 
+        echo -e "\e[32m Sucess \e[0m"
+    else
+        echo -e "\e[31m failed \e[0m"
+    fi
+}
 
 echo -e "\e[33m________Configuration started_______\e[0m"
 
