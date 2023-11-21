@@ -20,8 +20,8 @@ stat() {
 
 
 echo -n "Configuring NodeJS Repo :"
-    curl --silent --location https://rpm.nodesource.com/setup_16.x | sudo bash -  
-    yum install nodejs -y 
+    curl --silent --location https://rpm.nodesource.com/setup_16.x | sudo bash - &>>"${LOFGILE}"
+    yum install nodejs -y  &>> "${LOFGILE}"
 stat $?
 
 id ${APPUSER}  &>> "${LOFGILE}"
