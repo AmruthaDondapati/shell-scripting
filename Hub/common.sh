@@ -122,3 +122,4 @@ CONFIGURE_SVC() {
     stat $? 
 
     echo -e "\e[32m ______ $COMPONENT Configuration Completed _________ \e[0m"
+}
