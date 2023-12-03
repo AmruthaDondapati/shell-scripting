@@ -5,7 +5,7 @@ source components/common.sh    # Source loads a file and this file has all the c
 
 echo -e "\e[32m ______ $COMPONENT Configuration is Starting  _________ \e[0m"
 
-echo -n "Installing Nginx :"
+echo -n "Installing---Nginx :"
 yum install nginx -y     &>> "${LOFGILE}"
 stat $? 
 
