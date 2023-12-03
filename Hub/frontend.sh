@@ -1,7 +1,7 @@
 #!/bin/bash 
 
 COMPONENT=frontend
-source components/common.sh    # Source loads a file and this file has all the common patterns.
+source Hub/common.sh    # Source loads a file and this file has all the common patterns.
 
 echo -e "\e[32m ______ $COMPONENT Configuration is Starting  _________ \e[0m"
 
