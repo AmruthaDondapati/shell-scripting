@@ -1,11 +1,11 @@
 frontend:
-	bash AP/frontend.sh
+	bash Hub/frontend.sh
 
 mongodb:
-	bash AP/mongodb.sh
+	bash Hub/mongodb.sh
 
 catalogue:
-	bash AP/catalogue.sh
+	bash Hub/catalogue.sh
 
 redis:
-	bash AP/redis.sh
+	bash Hub/redis.sh
